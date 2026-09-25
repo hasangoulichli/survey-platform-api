@@ -35,6 +35,10 @@ def flatten_dict(d, parent_key='', sep='_'):
             items.append((new_key, v))
     return dict(items)
 
+@app.get("/")
+def read_root():
+    return {"durum": "basarili", "mesaj": "Survey API sunucusu aktif olarak calisiyor!"}
+
 # URL'den gelen survey_id parametresini alıyoruz
 @app.get("/export/csv/{survey_id}")
 async def export_data(survey_id: str):
